@@ -18,4 +18,4 @@ json=$(echo "$json" | sed 's/,$//')
 json="${json}}"
 
 # Set the output
-echo "::set-output name=github_env_json::$json"
+echo "scribe_github_env=$json" >> $SCRIBE_GITHUB_ENV
