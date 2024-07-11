@@ -1,2 +1,27 @@
 # scribe-labels
 Action for collecting labels for later use when building Docker images
+
+Example usage:
+```yaml
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate JSON from GITHUB Environment Variables
+        id: generate-json
+        uses: scribe-public/scribe-labels@v0.42
+
+      - name: Print JSON output
+        run: echo "${{ env.scribe_github_env }}"
+
+```
